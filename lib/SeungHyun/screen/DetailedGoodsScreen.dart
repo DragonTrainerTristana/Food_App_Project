@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:pet_service_application/SeungHyun/screen/shopping_basket.dart';
 import 'package:pet_service_application/SquareCardPageView.dart';
 import 'package:pet_service_application/appbar/DrawerWithAlarmAppBar.dart';
 import 'package:pet_service_application/GoodsInfo.dart';
-import 'package:pet_service_application/log_in/UserInfoClass.dart';
+import 'package:pet_service_application/bottombar/MenuBottomBar.dart';
 
 class DetailedGoodsScreen extends StatelessWidget {
   final GoodsInfo goodsInfo;
@@ -14,6 +13,7 @@ class DetailedGoodsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ContentDetailedGoods(goodsInfo),
+      bottomNavigationBar: MenuBottomBar(),
       //여기에 bottombar 추가하면됨
     );
   }
@@ -36,7 +36,7 @@ class _ContentDetailedGoods extends State<ContentDetailedGoods> {
     return Column(
       children: [
         DrawerWithAlarmAppBar(
-          nickName: UserInfo.userNickname,
+          nickName: '닉네임',
         ),
         Expanded(
           child: ListView(
@@ -118,10 +118,10 @@ class _ContentDetailedGoods extends State<ContentDetailedGoods> {
                                 : Color.fromRGBO(217, 217, 217, 1),
                           ),
                           onTap: () {
-                            setState(() {
+                            setState() {
                               widget.goodsInfo.detailedInfo.isLike =
                                   !widget.goodsInfo.detailedInfo.isLike;
-                            });
+                            }
                           },
                         ),
 
@@ -607,12 +607,7 @@ class _IngredientList extends State<IngredientList> {
                     height: 70,
                     width: 200,
                     child: FlatButton(
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => Shopping_Basket()));
-                      },
+                      onPressed: () {},
                       child: Text(
                         '장바구니 넣기',
                         style:

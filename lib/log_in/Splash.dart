@@ -1,36 +1,36 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:pet_service_application/log_in/LogIn.dart';
+import 'package:pet_service_application/main.dart';
 
-void main() => runApp(MyAppSplash());
+class Splash extends StatefulWidget {
 
-final String appName = "Pet App";
-
-class MyAppSplash extends StatelessWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-        title: appName,
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        home: Splash());
-  }
+  _SplashState createState() => _SplashState();
 }
 
-class Splash extends StatelessWidget {
+class _SplashState extends State<Splash> {
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     Timer(
         Duration(seconds: 3),
-        () => Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (BuildContext context) => LogIn())));
+            () =>
+            Navigator.of(context).pushReplacement(MaterialPageRoute(
+                builder: (BuildContext context) => LogIn())));
 
     return Container(
       color: Colors.white,
       alignment: Alignment.center,
       child: Container(
-        child: Image.asset('images/logo_main.png'),
+        child: Image.asset(
+            'images/logo_main.png'
+        ),
         width: 192,
         height: 192,
       ),

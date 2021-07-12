@@ -5,7 +5,7 @@ import 'package:pet_service_application/card_news/detail/CardNewsRelatedProducts
 import 'package:pet_service_application/card_news/detail/DetailCardNews.dart';
 import 'package:pet_service_application/card_news/detail/EventDetailWidget.dart';
 import 'package:pet_service_application/card_news/detail/TopPetsWidget.dart';
-import 'package:pet_service_application/log_in/UserInfoClass.dart';
+import 'package:pet_service_application/bottombar/MenuBottomBar.dart';
 
 class CardNewsDetailRoute extends StatelessWidget {
   final CardNewsModel cardNewsModel;
@@ -20,7 +20,7 @@ class CardNewsDetailRoute extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          DrawerWithAlarmAppBar(nickName: UserInfo.userNickname),
+          DrawerWithAlarmAppBar(nickName: '닉네임'),
           Expanded(
               child: ListView(children: [
             Container(
@@ -50,6 +50,7 @@ class CardNewsDetailRoute extends StatelessWidget {
           // 댓글 리스트
         ],
       ),
+      bottomNavigationBar: MenuBottomBar(),
     );
   }
 }

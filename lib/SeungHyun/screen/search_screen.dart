@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pet_service_application/appbar/BackBtnAppBar.dart';
-import 'package:pet_service_application/log_in/UserInfoClass.dart';
 
 class SearchRoute extends StatefulWidget {
   @override
@@ -30,7 +29,7 @@ class _SearchArea extends State<SearchArea> {
 
     return Column(
       children: [
-        BackBtnAppBar(nickName: UserInfo.userNickname),
+        BackBtnAppBar(nickName: '닉네임'),
         Container(
           margin: EdgeInsets.only(bottom: 20),
           child: SearchBar(managerWidget: searchContentsManagerWidget),
@@ -455,7 +454,7 @@ class PopularSearchedWordItem extends StatelessWidget {
                     Expanded(
                       flex: 5,
                       child: Center(
-                        child: Text(leftWordName),
+                        child: Text(rightWordName),
                       ),
                     ),
                   ],

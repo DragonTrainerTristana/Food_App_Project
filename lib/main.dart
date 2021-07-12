@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:pet_service_application/ProfileQuestion.dart';
 import 'package:pet_service_application/GoodsInfo.dart';
 import 'package:pet_service_application/GoodsWidget.dart';
 import 'package:pet_service_application/SeungHyun/screen/DetailedGoodsScreen.dart';
@@ -15,9 +14,8 @@ import 'package:pet_service_application/card_news/CardNewsPageView.dart';
 import 'package:pet_service_application/SeungHyun/screen/search_screen.dart';
 import 'package:pet_service_application/SeungHyun/screen/goods_screen.dart';
 import 'package:pet_service_application/SeungHyun/screen/wish_list_screen.dart';
-import 'package:pet_service_application/log_in/UserInfoClass.dart';
 
-//void main() => runApp(MyApp());
+void main() => runApp(MyApp());
 
 final String appName = "Pet App";
 
@@ -29,13 +27,16 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(),
+      home: MyHomePage(title: appName),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
+  final String title;
   final List<CardNewsModel> cardNewsModelList = [];
+
+  MyHomePage({Key? key, required this.title}) : super(key: key);
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -45,7 +46,6 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     super.initState();
-
     loadData();
   }
 
@@ -122,35 +122,13 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
           [
             GoodsInfo(
-              '순수 도그온',
-              'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/dog_food_four.png',
-              67000,
-              34000,
-              GoodsDetailedInfo(
-                  [
-                    'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/dog_food_four.png',
-                  ],
-                  false,
-                  ['쌀', '대두', '연어'],
-                  [
-                    Ingredient('조지방', 77),
-                    Ingredient('조단백질', 19),
-                    Ingredient('칼슘', 2),
-                    Ingredient('인', 1),
-                    Ingredient('비타민 A', null),
-                    Ingredient('비타민 E', null),
-                    Ingredient('비타민 D3', null),
-                  ],
-                  'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/detailed_food_image/detail_food_image4.png'),
-            ),
-            GoodsInfo(
-              '유기농 개사료',
-              'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/dog_food_three.png',
-              15000,
+              '닭고기맛 사료',
+              'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/dog_food_one.png',
+              25000,
               null,
               GoodsDetailedInfo(
                   [
-                    'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/dog_food_three.png',
+                    'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/dog_food_one.png',
                   ],
                   false,
                   ['쌀', '대두', '연어'],
@@ -163,7 +141,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     Ingredient('비타민 E', null),
                     Ingredient('비타민 D3', null),
                   ],
-                  'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/detailed_food_image/detail_food_image3.png'),
+                  'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/detailed_food_image/detail_food_image1.png'),
             ),
             GoodsInfo(
               '훈제 사료',
@@ -188,13 +166,13 @@ class _MyHomePageState extends State<MyHomePage> {
                   'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/detailed_food_image/detail_food_image2.png'),
             ),
             GoodsInfo(
-              '닭고기맛 사료',
-              'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/dog_food_one.png',
-              25000,
+              '유기농 개사료',
+              'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/dog_food_three.png',
+              15000,
               null,
               GoodsDetailedInfo(
                   [
-                    'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/dog_food_one.png',
+                    'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/dog_food_three.png',
                   ],
                   false,
                   ['쌀', '대두', '연어'],
@@ -207,7 +185,29 @@ class _MyHomePageState extends State<MyHomePage> {
                     Ingredient('비타민 E', null),
                     Ingredient('비타민 D3', null),
                   ],
-                  'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/detailed_food_image/detail_food_image1.png'),
+                  'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/detailed_food_image/detail_food_image3.png'),
+            ),
+            GoodsInfo(
+              '순수 도그온',
+              'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/dog_food_four.png',
+              67000,
+              34000,
+              GoodsDetailedInfo(
+                  [
+                    'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/dog_food_four.png',
+                  ],
+                  false,
+                  ['쌀', '대두', '연어'],
+                  [
+                    Ingredient('조지방', 77),
+                    Ingredient('조단백질', 19),
+                    Ingredient('칼슘', 2),
+                    Ingredient('인', 1),
+                    Ingredient('비타민 A', null),
+                    Ingredient('비타민 E', null),
+                    Ingredient('비타민 D3', null),
+                  ],
+                  'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/detailed_food_image/detail_food_image4.png'),
             ),
           ],
           null),
@@ -239,35 +239,13 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
           [
             GoodsInfo(
-              '순수 도그온',
-              'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/dog_food_four.png',
-              67000,
-              34000,
-              GoodsDetailedInfo(
-                  [
-                    'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/dog_food_four.png',
-                  ],
-                  false,
-                  ['쌀', '대두', '연어'],
-                  [
-                    Ingredient('조지방', 77),
-                    Ingredient('조단백질', 19),
-                    Ingredient('칼슘', 2),
-                    Ingredient('인', 1),
-                    Ingredient('비타민 A', null),
-                    Ingredient('비타민 E', null),
-                    Ingredient('비타민 D3', null),
-                  ],
-                  'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/detailed_food_image/detail_food_image4.png'),
-            ),
-            GoodsInfo(
-              '유기농 개사료',
-              'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/dog_food_three.png',
-              15000,
+              '닭고기맛 사료',
+              'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/dog_food_one.png',
+              25000,
               null,
               GoodsDetailedInfo(
                   [
-                    'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/dog_food_three.png',
+                    'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/dog_food_one.png',
                   ],
                   false,
                   ['쌀', '대두', '연어'],
@@ -280,7 +258,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     Ingredient('비타민 E', null),
                     Ingredient('비타민 D3', null),
                   ],
-                  'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/detailed_food_image/detail_food_image3.png'),
+                  'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/detailed_food_image/detail_food_image1.png'),
             ),
             GoodsInfo(
               '훈제 사료',
@@ -305,13 +283,13 @@ class _MyHomePageState extends State<MyHomePage> {
                   'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/detailed_food_image/detail_food_image2.png'),
             ),
             GoodsInfo(
-              '닭고기맛 사료',
-              'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/dog_food_one.png',
-              25000,
+              '유기농 개사료',
+              'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/dog_food_three.png',
+              15000,
               null,
               GoodsDetailedInfo(
                   [
-                    'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/dog_food_one.png',
+                    'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/dog_food_three.png',
                   ],
                   false,
                   ['쌀', '대두', '연어'],
@@ -324,7 +302,29 @@ class _MyHomePageState extends State<MyHomePage> {
                     Ingredient('비타민 E', null),
                     Ingredient('비타민 D3', null),
                   ],
-                  'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/detailed_food_image/detail_food_image1.png'),
+                  'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/detailed_food_image/detail_food_image3.png'),
+            ),
+            GoodsInfo(
+              '순수 도그온',
+              'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/dog_food_four.png',
+              67000,
+              34000,
+              GoodsDetailedInfo(
+                  [
+                    'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/dog_food_four.png',
+                  ],
+                  false,
+                  ['쌀', '대두', '연어'],
+                  [
+                    Ingredient('조지방', 77),
+                    Ingredient('조단백질', 19),
+                    Ingredient('칼슘', 2),
+                    Ingredient('인', 1),
+                    Ingredient('비타민 A', null),
+                    Ingredient('비타민 E', null),
+                    Ingredient('비타민 D3', null),
+                  ],
+                  'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/detailed_food_image/detail_food_image4.png'),
             ),
           ],
           null),
@@ -356,35 +356,13 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
           [
             GoodsInfo(
-              '순수 도그온',
-              'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/dog_food_four.png',
-              67000,
-              34000,
-              GoodsDetailedInfo(
-                  [
-                    'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/dog_food_four.png',
-                  ],
-                  false,
-                  ['쌀', '대두', '연어'],
-                  [
-                    Ingredient('조지방', 77),
-                    Ingredient('조단백질', 19),
-                    Ingredient('칼슘', 2),
-                    Ingredient('인', 1),
-                    Ingredient('비타민 A', null),
-                    Ingredient('비타민 E', null),
-                    Ingredient('비타민 D3', null),
-                  ],
-                  'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/detailed_food_image/detail_food_image4.png'),
-            ),
-            GoodsInfo(
-              '유기농 개사료',
-              'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/dog_food_three.png',
-              15000,
+              '닭고기맛 사료',
+              'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/dog_food_one.png',
+              25000,
               null,
               GoodsDetailedInfo(
                   [
-                    'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/dog_food_three.png',
+                    'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/dog_food_one.png',
                   ],
                   false,
                   ['쌀', '대두', '연어'],
@@ -397,7 +375,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     Ingredient('비타민 E', null),
                     Ingredient('비타민 D3', null),
                   ],
-                  'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/detailed_food_image/detail_food_image3.png'),
+                  'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/detailed_food_image/detail_food_image1.png'),
             ),
             GoodsInfo(
               '훈제 사료',
@@ -422,13 +400,13 @@ class _MyHomePageState extends State<MyHomePage> {
                   'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/detailed_food_image/detail_food_image2.png'),
             ),
             GoodsInfo(
-              '닭고기맛 사료',
-              'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/dog_food_one.png',
-              25000,
+              '유기농 개사료',
+              'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/dog_food_three.png',
+              15000,
               null,
               GoodsDetailedInfo(
                   [
-                    'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/dog_food_one.png',
+                    'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/dog_food_three.png',
                   ],
                   false,
                   ['쌀', '대두', '연어'],
@@ -441,7 +419,29 @@ class _MyHomePageState extends State<MyHomePage> {
                     Ingredient('비타민 E', null),
                     Ingredient('비타민 D3', null),
                   ],
-                  'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/detailed_food_image/detail_food_image1.png'),
+                  'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/detailed_food_image/detail_food_image3.png'),
+            ),
+            GoodsInfo(
+              '순수 도그온',
+              'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/dog_food_four.png',
+              67000,
+              34000,
+              GoodsDetailedInfo(
+                  [
+                    'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/dog_food_four.png',
+                  ],
+                  false,
+                  ['쌀', '대두', '연어'],
+                  [
+                    Ingredient('조지방', 77),
+                    Ingredient('조단백질', 19),
+                    Ingredient('칼슘', 2),
+                    Ingredient('인', 1),
+                    Ingredient('비타민 A', null),
+                    Ingredient('비타민 E', null),
+                    Ingredient('비타민 D3', null),
+                  ],
+                  'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/detailed_food_image/detail_food_image4.png'),
             ),
           ],
           null),
@@ -473,35 +473,13 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
           [
             GoodsInfo(
-              '순수 도그온',
-              'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/dog_food_four.png',
-              67000,
-              34000,
-              GoodsDetailedInfo(
-                  [
-                    'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/dog_food_four.png',
-                  ],
-                  false,
-                  ['쌀', '대두', '연어'],
-                  [
-                    Ingredient('조지방', 77),
-                    Ingredient('조단백질', 19),
-                    Ingredient('칼슘', 2),
-                    Ingredient('인', 1),
-                    Ingredient('비타민 A', null),
-                    Ingredient('비타민 E', null),
-                    Ingredient('비타민 D3', null),
-                  ],
-                  'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/detailed_food_image/detail_food_image4.png'),
-            ),
-            GoodsInfo(
-              '유기농 개사료',
-              'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/dog_food_three.png',
-              15000,
+              '닭고기맛 사료',
+              'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/dog_food_one.png',
+              25000,
               null,
               GoodsDetailedInfo(
                   [
-                    'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/dog_food_three.png',
+                    'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/dog_food_one.png',
                   ],
                   false,
                   ['쌀', '대두', '연어'],
@@ -514,7 +492,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     Ingredient('비타민 E', null),
                     Ingredient('비타민 D3', null),
                   ],
-                  'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/detailed_food_image/detail_food_image3.png'),
+                  'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/detailed_food_image/detail_food_image1.png'),
             ),
             GoodsInfo(
               '훈제 사료',
@@ -539,13 +517,13 @@ class _MyHomePageState extends State<MyHomePage> {
                   'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/detailed_food_image/detail_food_image2.png'),
             ),
             GoodsInfo(
-              '닭고기맛 사료',
-              'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/dog_food_one.png',
-              25000,
+              '유기농 개사료',
+              'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/dog_food_three.png',
+              15000,
               null,
               GoodsDetailedInfo(
                   [
-                    'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/dog_food_one.png',
+                    'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/dog_food_three.png',
                   ],
                   false,
                   ['쌀', '대두', '연어'],
@@ -558,7 +536,29 @@ class _MyHomePageState extends State<MyHomePage> {
                     Ingredient('비타민 E', null),
                     Ingredient('비타민 D3', null),
                   ],
-                  'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/detailed_food_image/detail_food_image1.png'),
+                  'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/detailed_food_image/detail_food_image3.png'),
+            ),
+            GoodsInfo(
+              '순수 도그온',
+              'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/dog_food_four.png',
+              67000,
+              34000,
+              GoodsDetailedInfo(
+                  [
+                    'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/dog_food_four.png',
+                  ],
+                  false,
+                  ['쌀', '대두', '연어'],
+                  [
+                    Ingredient('조지방', 77),
+                    Ingredient('조단백질', 19),
+                    Ingredient('칼슘', 2),
+                    Ingredient('인', 1),
+                    Ingredient('비타민 A', null),
+                    Ingredient('비타민 E', null),
+                    Ingredient('비타민 D3', null),
+                  ],
+                  'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/detailed_food_image/detail_food_image4.png'),
             ),
           ],
           null),
@@ -572,7 +572,7 @@ class _MyHomePageState extends State<MyHomePage> {
         mainAxisAlignment: MainAxisAlignment.start, // Column 기준 정렬
         crossAxisAlignment: CrossAxisAlignment.center, // Row 기준 정렬
         children: <Widget>[
-          DrawerWithAlarmAppBar(nickName: UserInfo.userNickname),
+          DrawerWithAlarmAppBar(nickName: '닉네임'),
           Expanded(
             flex: 1,
             child: ListView(
@@ -652,7 +652,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Row(
                     children: <Widget>[
                       Text(
-                        PetInfo.petName,
+                        '사탕이',
                         style: TextStyle(
                             color: Color.fromRGBO(255, 113, 113, 1),
                             decoration: TextDecoration.underline,
@@ -685,96 +685,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     onTap: () => Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => GoodsScreen([
-                                    GoodsInfo(
-                                      '닭고기맛 사료',
-                                      'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/dog_food_one.png',
-                                      25000,
-                                      null,
-                                      GoodsDetailedInfo(
-                                          [
-                                            'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/dog_food_one.png',
-                                          ],
-                                          false,
-                                          ['쌀', '대두', '연어'],
-                                          [
-                                            Ingredient('조지방', 77),
-                                            Ingredient('조단백질', 19),
-                                            Ingredient('칼슘', 2),
-                                            Ingredient('인', 1),
-                                            Ingredient('비타민 A', null),
-                                            Ingredient('비타민 E', null),
-                                            Ingredient('비타민 D3', null),
-                                          ],
-                                          'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/detailed_food_image/detail_food_image1.png'),
-                                    ),
-                                    GoodsInfo(
-                                      '훈제 사료',
-                                      'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/dog_food_two.png',
-                                      32000,
-                                      null,
-                                      GoodsDetailedInfo(
-                                          [
-                                            'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/dog_food_two.png',
-                                          ],
-                                          false,
-                                          ['쌀', '대두', '연어'],
-                                          [
-                                            Ingredient('조지방', 77),
-                                            Ingredient('조단백질', 19),
-                                            Ingredient('칼슘', 2),
-                                            Ingredient('인', 1),
-                                            Ingredient('비타민 A', null),
-                                            Ingredient('비타민 E', null),
-                                            Ingredient('비타민 D3', null),
-                                          ],
-                                          'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/detailed_food_image/detail_food_image2.png'),
-                                    ),
-                                    GoodsInfo(
-                                      '유기농 개사료',
-                                      'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/dog_food_three.png',
-                                      15000,
-                                      null,
-                                      GoodsDetailedInfo(
-                                          [
-                                            'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/dog_food_three.png',
-                                          ],
-                                          false,
-                                          ['쌀', '대두', '연어'],
-                                          [
-                                            Ingredient('조지방', 77),
-                                            Ingredient('조단백질', 19),
-                                            Ingredient('칼슘', 2),
-                                            Ingredient('인', 1),
-                                            Ingredient('비타민 A', null),
-                                            Ingredient('비타민 E', null),
-                                            Ingredient('비타민 D3', null),
-                                          ],
-                                          'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/detailed_food_image/detail_food_image3.png'),
-                                    ),
-                                    GoodsInfo(
-                                      '순수 도그온',
-                                      'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/dog_food_four.png',
-                                      67000,
-                                      34000,
-                                      GoodsDetailedInfo(
-                                          [
-                                            'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/dog_food_four.png',
-                                          ],
-                                          false,
-                                          ['쌀', '대두', '연어'],
-                                          [
-                                            Ingredient('조지방', 77),
-                                            Ingredient('조단백질', 19),
-                                            Ingredient('칼슘', 2),
-                                            Ingredient('인', 1),
-                                            Ingredient('비타민 A', null),
-                                            Ingredient('비타민 E', null),
-                                            Ingredient('비타민 D3', null),
-                                          ],
-                                          'https://raw.githubusercontent.com/DragonTrainerTristana/Food_App_Project_Image_Asset/main/detailed_food_image/detail_food_image4.png'),
-                                    ),
-                                  ])),
+                              builder: (context) => GoodsScreen()),
                         ),
                     child: Container(
                         alignment: Alignment.centerRight,
@@ -906,126 +817,106 @@ class _MyHomePageState extends State<MyHomePage> {
             //padding: EdgeInsets.zero,
             children: <Widget>[
               SizedBox(height: 20.0),
-              Expanded(
-                flex: 1,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    GestureDetector(
-                        onTap: () => Navigator.pop(context),
-                        child: Container(
-                            alignment: Alignment.centerLeft,
-                            child:
-                                Icon(Icons.arrow_back, color: Colors.grey[850]),
-                            margin: EdgeInsets.all(20.0))),
-                    GestureDetector(
-                        onTap: () => {
-                              //Navigator.push(context,Setting); 추후 수정해야 할 것
-                            },
-                        child: Container(
-                            alignment: Alignment.centerRight,
-                            child:
-                                Icon(Icons.settings, color: Colors.grey[850]),
-                            margin: EdgeInsets.all(20.0))),
-                  ],
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  GestureDetector(
+                      onTap: () => Navigator.pop(context),
+                      child: Container(
+                          alignment: Alignment.centerLeft,
+                          child:
+                              Icon(Icons.arrow_back, color: Colors.grey[850]),
+                          margin: EdgeInsets.all(20.0))),
+                  GestureDetector(
+                      onTap: () => {
+                            //Navigator.push(context,Setting);
+                          },
+                      child: Container(
+                          alignment: Alignment.centerRight,
+                          child: Icon(Icons.settings, color: Colors.grey[850]),
+                          margin: EdgeInsets.all(20.0))),
+                ],
+              ),
+              SizedBox(height: 130.0),
+              CircleAvatar(
+                radius: 110.0,
+                backgroundColor: Color.fromRGBO(255, 113, 113, 1),
+                child: CircleAvatar(
+                  radius: 100.0,
+                  backgroundImage: AssetImage('images/logo_main.png'),
                 ),
               ),
-              Expanded(
-                flex: 8,
-                child: Column(
-                  children: [
-                    SizedBox(height: 20),
-                    CircleAvatar(
-                      radius: 90.0,
-                      backgroundColor: PINK,
-                      child: CircleAvatar(
-                        radius: 80.0,
-                        backgroundColor: Colors.white,
-                        backgroundImage: AssetImage('images/logo_main.png'),
-                      ),
-                    ),
-                    SizedBox(height: 30.0),
-                    Text(
-                      '${UserInfo.userNickname}와 함께하는\n[${PetInfo.petName}]님',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20.0,
-                      ),
-                      //'$PetName과 함께하는\n$NickName님'
-                    ),
-                  ],
+              SizedBox(height: 30.0),
+              Text(
+                '[펫이름]과 함께하는\n[닉네임]님',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20.0,
                 ),
+                //'$PetName과 함께하는\n$NickName님'
               ),
-              //SizedBox(height: 50),
-              Expanded(
-                flex: 8,
-                child: Column(
-                  children: [
-                    ListTile(
-                      title: Text(
-                        '친구의 정보',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      onTap: () {
-                        print('Profile is clicked');
-                      },
-                      //trailing: Icon(Icons.add) : +키 생략
-                    ),
-                    SizedBox(
-                      height: 20.0,
-                    ),
-                    ListTile(
-                      // leading: Icon(
-                      //   Icons.check_box_outlined,
-                      //   color: Colors.grey[850],
-                      // ),
-                      title: Text(
-                        '찜 목록',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => Wish_List_Screen()));
-                      },
-                    ),
-                    SizedBox(
-                      height: 20.0,
-                    ),
-                    ListTile(
-                      // leading: Icon(
-                      //   Icons.shopping_cart_outlined,
-                      //   color: Colors.grey[850],
-                      // ),
-                      title: Text(
-                        '장바구니',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      onTap: () {
-                        print('shopping_cart is clicked');
-                      },
-                    ),
-                    SizedBox(height: 20),
-                    ListTile(
-                      leading: Icon(
-                        Icons.login_outlined,
-                        color: Colors.grey[850],
-                      ),
-                      title: Text('로그인 하기'),
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (BuildContext context) => Splash()));
-                      },
-                    ),
-                  ],
+              SizedBox(height: 60.0),
+              ListTile(
+                title: Text(
+                  '친구의 정보',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontWeight: FontWeight.bold),
                 ),
+                onTap: () {
+                  print('Profile is clicked');
+                },
+                //trailing: Icon(Icons.add) : +키 생략
+              ),
+              SizedBox(
+                height: 20.0,
+              ),
+              ListTile(
+                // leading: Icon(
+                //   Icons.check_box_outlined,
+                //   color: Colors.grey[850],
+                // ),
+                title: Text(
+                  '찜 목록',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => Wish_List_Screen()));
+                },
+              ),
+              SizedBox(
+                height: 20.0,
+              ),
+              ListTile(
+                // leading: Icon(
+                //   Icons.shopping_cart_outlined,
+                //   color: Colors.grey[850],
+                // ),
+                title: Text(
+                  '장바구니',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                onTap: () {
+                  print('shopping_cart is clicked');
+                },
+              ),
+              ListTile(
+                leading: Icon(
+                  Icons.login_outlined,
+                  color: Colors.grey[850],
+                ),
+                title: Text('로그인 하기'),
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (BuildContext context) => Splash()));
+                },
               ),
             ],
           ),

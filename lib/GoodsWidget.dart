@@ -42,26 +42,11 @@ class _GoodsCardWidget extends State<GoodsCardWidget> {
                 child: Row(
                   children: [
                     Expanded(
-                      flex: 1,
-                      child: SizedBox(
-                        width: heartAndCartSize,
-                        height: heartAndCartSize,
-                        child: GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              widget.goodsInfo.detailedInfo.isLike =
-                                  !widget.goodsInfo.detailedInfo.isLike;
-                            });
-                          },
-                          child: Icon(
-                            Icons.favorite,
-                            color: widget.goodsInfo.detailedInfo.isLike
-                                ? Color.fromRGBO(255, 87, 87, 1)
-                                : Color.fromRGBO(217, 217, 217, 1),
-                          ),
-                        ),
-                      ),
-                    ),
+                        flex: 1,
+                        child: SizedBox(
+                            width: heartAndCartSize,
+                            height: heartAndCartSize,
+                            child: Image.asset('images/heart_icon.png'))),
                     Expanded(
                         flex: 3,
                         child: Center(
